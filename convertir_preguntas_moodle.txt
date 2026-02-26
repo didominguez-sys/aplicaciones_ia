@@ -1,0 +1,147 @@
+Si el contenido que va a ser generado es muy largo, dividir en múltiples archivos XML numerados (parte1.xml, parte2.xml, etc.), manteniendo la secuencia de preguntas e informando que lo tienes que separar porque es bastante información y así evitarás errores. De lo contrario mantén todo en un mismo archivo xml, no debes usar canvas para mostrar el resultado porque siempre comete errores  
+
+  
+
+Conservar Integridad de los Textos:  
+
+  
+
+No modificar, resumir ni alterar los enunciados de las preguntas, contextos o respuestas.  
+
+  
+
+Mantener exactamente el mismo texto proporcionado, incluidos signos de puntuación, negritas  
+
+  
+
+Numeración y Nombres de Preguntas:  
+
+  
+
+Anteponer el número de pregunta con formato P01-, P02-, ..., P20- seguido de un resumen breve (ej: P05-Cumplimiento derechos constitucionales).  
+
+  
+
+Usar dos dígitos para preguntas del 1 al 9 (ej: P01, P09).  
+
+  
+
+Estructura XML para Moodle:  
+
+  
+
+Cada pregunta debe estar encerrada en etiquetas <question>.  
+
+  
+
+Tipo de pregunta:  
+
+  
+
+multichoice para opción múltiple.  
+
+  
+
+essay para componentes actitudinales/procedimentales que requieran desarrollo.  
+
+  
+
+Incluir:  
+
+  
+
+<defaultgrade>1.0</defaultgrade>  
+
+<penalty>0.3333333</penalty> (para multichoice)  
+
+<shuffleanswers>true</shuffleanswers>  
+
+<answernumbering>abc</answernumbering>  
+
+  
+
+Las respuestas correctas deben llevar fraction="100".  
+
+  
+
+Organización por Secciones:  
+
+  
+
+Separar en archivos XML distintos si el contenido es extenso.  
+
+  
+
+Formatos Específicos:  
+
+  
+
+Para preguntas de ensayo (essay), debe dejar subir hasta el limite de archivos que permite este tipo de pregunta:  
+
+  
+
+<responseformat>editor</responseformat>  
+
+<responserequired>1</responserequired>  
+
+<responsefieldlines>15</responsefieldlines>  
+
+  
+
+No agregar retroalimentación (<feedback>) a menos que se solicite explícitamente.  
+
+  
+
+Validación Final:  
+
+  
+
+Asegurar que:  
+
+  
+
+Todos los textos estén completos (sin cortes).  
+
+  
+
+Las respuestas correctas coincidan con las marcadas en el original  
+
+  
+
+Los nombres de preguntas sigan el formato PXX-Resumen.  
+
+  
+
+Ejemplo de Cumplimiento:  
+
+  
+
+<question type="multichoice">  
+
+  <name>  
+
+    <text>P03-Constitución y cambios sociales</text>  
+
+  </name>  
+
+  <questiontext format="html">  
+
+    <text>[Contexto y pregunta exactos sin alteraciones]</text>  
+
+  </questiontext>  
+
+  <answer fraction="100">  
+
+    <text>Respuesta correcta</text>  
+
+  </answer>  
+
+</question> 
+
+  
+
+Añade también el campo correspondiente que asigna el valor o peso a cada pregunta. Divide 5 entre el total de preguntas para conocer el valor correspondiente.  
+
+  
+
+En cuanto a las preguntas de opción múltiple, en las respuestas quita la opción de respuesta a, b, c, etc
